@@ -10,7 +10,7 @@ def normalize_structure_cp(tree):
     if not isinstance(tree, (list, dict)):
         return tree
     elif isinstance(tree, list):
-        pre_list = [normalize_structure(leaf) for leaf in tree]
+        pre_list = [normalize_structure_cp(leaf) for leaf in tree]
         for l in pre_list:
             pre_result = {}
             if isinstance(l, dict):
@@ -23,7 +23,7 @@ def normalize_structure_cp(tree):
         for key in end_keys:
             if key in tree:
                 return tree[key]
-        pre_dict = {k: normalize_structure(v) for k, v in tree.iteritems()}
+        pre_dict = {k: normalize_structure_cp(v) for k, v in tree.iteritems()}
         normalized_tree.update(**pre_dict)
 
     return normalized_tree
