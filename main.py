@@ -218,6 +218,5 @@ def _dynamic_auto_parsing_2(dt):
 
 # wow = _dynamic_auto_parsing(dt, 1)
 woe = normalize_structure(dt)
-www = DataParser()
-wowww = www._get_audiences(dt)
+wowww = DataParser()._get_audiences(dt)
 print wow
