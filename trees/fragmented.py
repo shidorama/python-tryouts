@@ -34,4 +34,4 @@ def parse_dict(dct):
     for key in end_keys:
         if key in dct:
             return dct[key]
-    return {x:normalize_structure(dct[x]) for x in dct if isinstance(dct[x], (list, dict))}
+    return {x: normalize_structure(dct[x]) for x in dct if isinstance(dct[x], (list, dict))}

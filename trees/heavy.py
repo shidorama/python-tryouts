@@ -1,3 +1,9 @@
+class basestring(str):
+    pass
+
+class unicode(str, basestring):
+    pass
+
 def _dynamic_auto_parsing(data, levels=1, from_level=None):
     """
     All in one method, normalizes structure and flattens resulting struct
@@ -40,7 +46,8 @@ def _dynamic_auto_parsing(data, levels=1, from_level=None):
         else:
             result.append([None, new_data])
 
-    if current_level == dict and subtypes.issubset(end_data): #Data needs extraction; we don't need everything from dict
+    if current_level == dict and subtypes.issubset(
+            end_data):  # Data needs extraction; we don't need everything from dict
         for entry in result:
             if entry[0] in ('name', 'value'):
                 return entry[1], levels, current_level, True

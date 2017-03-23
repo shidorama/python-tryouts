@@ -1,15 +1,14 @@
 # -*- coding: latin-1 -*-
-from twisted.internet import reactor
-from twisted.protocols.basic import LineReceiver
-from trees.comprehendable import normalize_structure_cp
 from trees.fragmented import normalize_structure
-from trees.heavy import _dynamic_auto_parsing
+
+
 def main():
     pass
 
 
 class DataParser(object):
     skip_fields = ['geo_locations', 'flexible_specs']
+
     def __init__(self):
         pass
         # self.data = data
@@ -35,7 +34,6 @@ class DataParser(object):
     def _auto_parse(self, obj):
         if isinstance(obj, (basestring, int, float)):
             return obj
-
 
     @classmethod
     def _get_countries(cls, geo_locations):
@@ -87,12 +85,10 @@ class DataParser(object):
             for key in end_keys:
                 if key in audiences:
                     return audiences[key]
-            pre_dict = {k:self._get_audiences(v) for k, v in audiences.iteritems()}
+            pre_dict = {k: self._get_audiences(v) for k, v in audiences.iteritems()}
             audiences_result.update(**pre_dict)
 
         return audiences_result
-
-
 
 
 dt = {
@@ -203,21 +199,20 @@ dt = {
     "id": "6052531977602"
 }
 
+
 # y = DataParser(dt)
 
 class LEVELS():
     CATALOG = list
 
 
-
-
 def _dynamic_auto_parsing_2(dt):
     pass
-
 
 
 # wow = _dynamic_auto_parsing(dt, 1)
 woe = normalize_structure(dt)
 www = DataParser()
 wowww = www._get_audiences(dt)
-print wow
+print
+wow
